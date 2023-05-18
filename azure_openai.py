@@ -17,10 +17,8 @@ def setup_environment():
   openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-def get_index():
+def get_service_context():
   deployment_name = "text-davinci-003"
-  data_path = "context_data/data"
-  storage_path = "./storage"
 
   llm = AzureOpenAI(deployment_name=deployment_name)
   llm_predictor = LLMPredictor(llm=llm)
@@ -32,8 +30,18 @@ def get_index():
   max_chunk_overlap = 20
   prompt_helper = PromptHelper(max_input_size=max_input_size, num_output=num_output, max_chunk_overlap=max_chunk_overlap, chunk_size_limit=chunk_size_limit)
   service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor, prompt_helper=prompt_helper, embed_model=embedding_llm)
+  
+  return service_context
 
-  if os.path.exists(storage_path) and os.listdir(storage_path):
+
+def get_index():
+  service_context = get_service_context()
+  data_path = "context_data/data"
+  storage_path = "./storage"
+
+  is_local_vector_store = os.path.exists(storage_path) and os.listdir(storage_path)
+
+  if is_local_vector_store:
     print("loading index from storage")
     storage_context = StorageContext.from_defaults(persist_dir=storage_path)
     index = load_index_from_storage(storage_context, service_context=service_context)
@@ -50,10 +58,10 @@ def get_index():
 def askGPT(index):
 
   template = "Shortly answer the following question, do not elaborate. {}"
-  #template = "{}"
 
   while True:
       prompt = input("Prompt: ")
+
       if prompt == "exit":
         break
 
@@ -67,10 +75,10 @@ def askGPT(index):
 """
 Questions
 
-Where tiaras allowed at the ceremony?
-What was the venue for the coronation?
+Were tiaras allowed at the ceremony?
+What was the venue of the coronation?
 What transportation did Charles and Camilla use to travel to the abbey?
-Did the prince of Wales participate in the service?
+Did the Prince of Wales participate in the service?
 
 """
 
