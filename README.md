@@ -33,10 +33,8 @@ You should have an Azure account and a running instance of OpenAI.
 
 ## Configuration
 
-1. Inside 'constants.py', complete the API key and the Azure resource endpoint base.
-<br>
-Select an instance on the [Cognitive Services Hub](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/OpenAI) and go to "Keys and Endpoints".
-<br>
+1. Inside 'constants.py', complete the API key and the Azure resource endpoint base.  
+Select an instance on the [Cognitive Services Hub](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/OpenAI) and go to "Keys and Endpoints".  
 Use either "KEY 1" or "KEY 2" and the "Endpoint" field.
 
    ```python
@@ -54,8 +52,7 @@ Run:
 python azure_openai.py
 ```
 
-Prompt example:
-<br> 
+Prompt example:  
 (Using data from the Wikipedia page [Coronation of Charles III and Camilla](https://en.wikipedia.org/wiki/Coronation_of_Charles_III_and_Camilla)).
 ```shell
 Prompt: Where tiaras allowed at the ceremony?
