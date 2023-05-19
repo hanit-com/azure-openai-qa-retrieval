@@ -58,6 +58,7 @@ def get_index():
 def askGPT(index):
 
   template = "Shortly answer the following question, do not elaborate. {}"
+  query_engine = index.as_query_engine()
 
   while True:
       prompt = input("Prompt: ")
@@ -66,9 +67,8 @@ def askGPT(index):
         break
 
       query = template.format(prompt)
-      query_engine = index.as_query_engine()
-
       response = query_engine.query(query)
+      
       print(f"Completion: {response.response}")
 
 
