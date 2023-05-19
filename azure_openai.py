@@ -20,7 +20,7 @@ def setup_environment():
 def get_service_context():
   deployment_name = "text-davinci-003"
 
-  llm = AzureOpenAI(deployment_name=deployment_name)
+  llm = AzureOpenAI(deployment_name=deployment_name, temperature=1.0)
   llm_predictor = LLMPredictor(llm=llm)
   embedding_llm = LangchainEmbedding(OpenAIEmbeddings(), embed_batch_size=1)
 
@@ -75,9 +75,9 @@ def askGPT(index):
 """
 Questions
 
-Were tiaras allowed at the ceremony?
 What was the venue of the coronation?
-What transportation did Charles and Camilla use to travel to the abbey?
+Were tiaras allowed at the ceremony?
+What transportation did Charles and Camilla use to get to the abbey?
 Did the Prince of Wales participate in the service?
 
 """

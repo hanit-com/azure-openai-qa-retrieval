@@ -5,29 +5,33 @@ This repository utilizes Azure OpenAI Embedding service to answer questions and 
 ## Prerequisites
 You should have an Azure account and a running instance of OpenAI.
 
+## Workflow
+
+![Diagram](resources/diagram.png)
+
 ## Installation
 
 1. Clone the repository:
 
-   ```shell
+   ```
    git clone https://github.com/your-username/your-project.git
    ```
 
 2. Create a Python environment:
 
-   ```shell
+   ```
    python -m venv .env
    ```
 
 3. Activate the environment:
 
-   ```shell
+   ```
    source .env/bin/activate
    ```
 
 4. Install the dependencies:
 
-   ```shell
+   ```
    pip install -r requirements.txt
    ```
 
@@ -48,18 +52,21 @@ Use either "KEY 1" or "KEY 2" and the "Endpoint" field.
 
 Run:
 
-```shell
+```
 python azure_openai.py
 ```
 
 Prompt example:  
 (Using data from the Wikipedia page [Coronation of Charles III and Camilla](https://en.wikipedia.org/wiki/Coronation_of_Charles_III_and_Camilla)).
-```shell
-Prompt: Where tiaras allowed at the ceremony?
+```
+Prompt: What was the venue of the coronation?
+Completion: 
+The venue of the coronation was Westminster Abbey.
+Prompt: Were tiaras allowed at the ceremony?
 Completion: 
 No, tiaras were not allowed at the ceremony.
-Prompt: What was the venue for the coronation?
+Prompt: What transportation did Charles and Camilla use to get to the abbey?   
 Completion: 
-The venue for the coronation was Westminster Abbey.
+Charles and Camilla used the Diamond Jubilee State Coach, drawn by six Windsor Greys, to travel from Buckingham Palace to Westminster Abbey.
 ```
 
