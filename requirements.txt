@@ -1,3 +1,2 @@
-llama-index=0.6.8
-langchain=0.0.173
-pypdf
+llama-index==0.6.8
+langchain==0.0.173
