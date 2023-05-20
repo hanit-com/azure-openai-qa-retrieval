@@ -1,6 +1,5 @@
 import os
 import openai
-from constants import API_KEY, RESOURCE_ENDPOINT
 from llama_index import LangchainEmbedding, GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, PromptHelper, ServiceContext, StorageContext
 from llama_index import load_index_from_storage
 from langchain.llms import AzureOpenAI
@@ -8,9 +7,6 @@ from langchain.embeddings import OpenAIEmbeddings
 
 
 def setup_environment():
-  os.environ["OPENAI_API_KEY"] = API_KEY
-  os.environ["OPENAI_API_BASE"] = RESOURCE_ENDPOINT
-
   openai.api_type = "azure"
   openai.api_version = "2022-12-01"
   openai.api_base = os.getenv('OPENAI_API_BASE')
@@ -68,7 +64,7 @@ def askGPT(index):
 
       query = template.format(prompt)
       response = query_engine.query(query)
-      
+
       print(f"Completion: {response.response}")
 
 
