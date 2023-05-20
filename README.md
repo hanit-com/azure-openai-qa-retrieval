@@ -1,4 +1,4 @@
-# Azure OpenAI Embedding
+# Azure OpenAI
 
 This repository utilizes Azure OpenAI Embedding service to answer questions and interact with your own documented data. 
 
