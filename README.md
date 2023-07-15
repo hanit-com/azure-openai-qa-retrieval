@@ -14,7 +14,7 @@ You should have an Azure account and a running instance of OpenAI.
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/your-project.git
+   git clone https://github.com/hanit-com/azure-openai-embedding.git
    ```
 
 2. Create a Python environment:
