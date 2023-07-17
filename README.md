@@ -14,7 +14,7 @@ You should have an Azure account and a running instance of OpenAI.
 1. Clone the repository:
 
    ```
-   git clone https://github.com/hanit-com/azure-openai-embedding.git
+   git clone https://github.com/hanit-com/azure-openai-qa-retrieval.git
    ```
 
 2. Create a Python environment:
